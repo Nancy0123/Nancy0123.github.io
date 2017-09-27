@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js.js"></script>
+    <title>打字游戏</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+
+    }
+    .box{
+        width: 100%;
+        height: 665px;
+        position: relative;
+        background: url("01.png") center no-repeat;
+        background-size: cover;
+    }
+    h1{
+        font-family: 华文彩云;
+        color:#C60A0A;
+        line-height: 300px;
+        font-size: 120px;
+        text-align: center;
+    }
+    button{
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right:0;
+        margin: auto;
+        bottom: 300px;
+        font-size: 26px;
+        font-family: 华文新魏;
+        border-radius: 20px;
+        border: 1px solid #C60A0A;
+        background: #cc5577;
+    }
+    img{
+        width: 340px;
+        height: 370px;
+        position: absolute;
+        left:0;
+        right: 0;
+        margin: auto;
+        top:150px;
+
+    }
+</style>
+<body>
+    <div class="box">
+        <h1>打字游戏</h1>
+        <button>开始游戏</button>
+
+    </div>
+    <!--<img src="5.png">-->
+</body>
+</html>
+<script>
+    $('button').onclick=function () {
+        $('button').style.display='none';
+        $('.box').style.opacity=0.3;
+        let t=setInterval(move,1000);
+        let img=$('<img>');
+        img.src="5.png";
+        $('body').appendChild(img);
+        n=5;
+        function move() {
+            n--;
+            $('img').src=`${n}.png`;
+            if(n<1){
+                clearInterval(t);
+                location.href='word.html';
+            }
+        }
+    }
+
+
+</script>

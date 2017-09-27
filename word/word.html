@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js.js"></script>
+    <script src="animate.js"></script>
+    <title>打字游戏</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin:0;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        background: url("01.png") 100% no-repeat;
+        background-size: cover;
+    }
+    .box{
+        width: 1200px;
+        height: 665px;
+        float: right;
+        position: absolute;
+        right: 0;
+        top:0;
+
+    }
+    .box>div{
+        width: 100px;
+        height: 100px;
+    }
+    .box>div>img{
+        width: 100%;
+        height:100%;
+    }
+    .live,.score{
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        box-sizing: border-box;
+        box-shadow: rgba(0,0,0,0.3);
+        text-align: center;
+        border: 2px solid #000;
+        border-radius: 15px;
+        font-family: 华文新魏;
+        font-size: 20px;
+        margin-top: 26px;
+    }
+</style>
+<body>
+    <div class="live">
+        生命：
+        <span>10</span>
+    </div>
+    <div class="score">
+        分数：
+        <span>0</span>
+    </div>
+    <div class="box">
+
+    </div>
+</body>
+</html>
+<script>
+
+    function Word() {
+        this.length=3;
+        this.box=$('.box');
+        this.Score=$('.score>span');
+        this.Live=$('.live>span');
+        this.currentArr=[];
+        this.t=0;
+        this.speed=10;
+        this.live=10;
+        this.score=0;
+    }
+    Word.prototype={
+        play:function () {
+            this.getletter();
+            this.floor();
+            this.fade();
+        },
+        getletter:function () {
+            for(let i=0;i<this.length;i++){
+                this.getRandom();
+            }
+        },
+        getRandom:function () {
+            do{
+                var code=Math.ceil(Math.random()*25+65);
+                var letter=String.fromCharCode(code);
+            }while (this.check(letter));
+            var img=document.createElement('img');
+            img.style.cssText=`
+                        position: absolute;
+                        left:${Math.random()*1100}px;
+                        top:${Math.random()*50}px;
+                    `;
+            img.src=`img/${letter}.png`;
+            img.alt=letter;
+            this.box.appendChild(img);
+            this.currentArr.push(img);
+        },
+        check:function (letter) {
+            return this.currentArr.some(function (dom) {
+                return dom.alt==letter;
+            })
+        },
+        floor:function () {
+            let that=this;
+            this.t=setInterval(function () {
+                for(var i=0;i<that.length;i++){
+                    let currTop=that.currentArr[i].offsetTop;
+                    let top=currTop+that.speed;
+                    that.currentArr[i].style.top=top+'px';
+                    if(top>500){
+                        that.live--;
+                        that.Live.innerHTML=`${that.live}`;
+                        if(that.live<0){
+                            alert('Game Over');
+                            history.go(0);
+                        }
+                        that.box.removeChild(that.box.children[i]);
+                        that.currentArr.splice(i,1);
+                        that.getRandom();
+                    }
+                }
+            },100)
+        },
+        fade:function () {
+            var that=this;
+            document.onkeydown=function (e) {
+                let Key=String.fromCharCode(e.keyCode);
+                that.currentArr.forEach(function (value,index) {
+                    if(Key==value.alt){
+                        that.box.removeChild(that.box.children[index]);
+                        that.currentArr.splice(index,1);
+                        that.getRandom();
+                        that.score++;
+                        that.Score.innerHTML=that.score;
+                        if(that.score==5){
+                            var conf=confirm('恭喜过关，是否进入下一关');
+                            if(conf){
+                                that.next();
+                                that.score=0;
+                                that.Score.innerHTML=that.score;
+                            }else{
+                                window.close();
+                            }
+                        }
+                    }
+                })
+            };
+        },
+        next:function () {
+            var that=this;
+            clearInterval(this.t);
+            this.currentArr.forEach(function (value) {
+                that.box.removeChild(value);
+            });
+            this.currentArr=[];
+            this.speed+=1;
+            this.score=0;
+            this.live+=2;
+            this.length+=2;
+            this.play();
+        }
+
+    };
+
+    var obj=new Word();
+    obj.play();
+
+</script>

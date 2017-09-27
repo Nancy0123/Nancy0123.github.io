@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js.js"></script>
+    <title>贪吃蛇</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .box1{
+        width: 100%;
+        height: 665px;
+        overflow: hidden;
+        background:url("04.jpg") center 5px no-repeat;
+        background-size: cover;
+    }
+    .box{
+        width: 600px;
+        height:600px ;
+        border: 1px solid #fff;
+        margin: 0 auto;
+        margin-top: 20px;
+        background-color: #F09B76;
+    }
+    .box>div{
+        float: left;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+    }
+    .she{
+        width: 30px;
+        height: 30px;
+        background: #C60A0A;
+    }
+    .food{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: blue;
+    }
+    .alert{
+        width: 414px;
+        height: 250px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top:100px;
+        background:url("06.jpg") center center no-repeat;
+        background-size: cover;
+        border-radius: 50px;
+        display: none;
+        border: 1px solid #000;
+    }
+    .alert>h1{
+        font-size: 60px;
+        font-family: 华文新魏;
+        text-align: center;
+        line-height: 200px;
+        font-weight: 700;
+
+    }
+    .reload{
+        width: 150px;
+        height: 50px;
+        font-size: 26px;
+        line-height: 50px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 50px;
+        background-color: #3A5B26;
+        color: #fff;
+    }
+    .score,.time,.start,.stop{
+        width: 150px;
+        height: 50px;
+        position: absolute;
+        border-radius: 20px;
+        border: 1px solid #000;
+        line-height: 50px;
+        text-align: center;
+        font-size: 26px;
+        font-family: 华文新魏;
+        background-color: #cc5577;
+        color: #fff;
+    }
+    .score{
+        left: 11%;
+        top:150px;
+    }
+    .time{
+        left: 11%;
+        top:250px;
+    }
+    .start{
+        left: 11%;
+        top:350px;
+        cursor: pointer;
+    }
+    .stop{
+        left: 11%;
+        top:450px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="box1">
+        <div class="box">
+
+        </div>
+        <div class="score">
+            得分:  <span>0</span>
+        </div>
+        <div class="time">
+            时间:  <span>0</span>s
+        </div>
+        <div class="start">开始</div>
+        <div class="stop">暂停</div>
+    </div>
+    <div class="alert">
+        <h1>Game Over</h1>
+        <button class="reload">再来一局</button>
+    </div>
+</body>
+</html>
+<script>
+    //创建一个数组，放两个参数，
+    var box=$('.box');
+    var she=[{x:0,y:0},{x:1,y:0},{x:2,y:0}];
+    var Score=$('.score>span');
+    var Time=$('.time>span');
+    var score=0;
+    var time=new Date();
+    var btime=time.getTime();
+    var start=$('.start');
+    var stop=$('.stop');
+    for(let i=0;i<20;i++){
+        for(let j=0;j<20;j++){
+            let div=$('<div>');
+            box.appendChild(div);
+            div.id='r'+j+'-'+i;
+        }
+    }
+    for(let i=0;i<she.length;i++){
+        let obj=$('#r'+she[i].x+'-'+she[i].y);
+        obj.classList.add('she')
+    }
+
+    let food=setFood();
+    function setFood() {
+        do{
+            var x=Math.floor(Math.random()*20);
+            var y=Math.floor(Math.random()*20);
+        }while (check(x,y));
+        let obj=$("#r"+x+"-"+y);
+        obj.classList.add('food');
+        return {x:x,y:y};
+    }
+    function check(m,n){
+        let result=she.some(function (value) {
+            return value.x==m&&value.y==n;
+        });
+        return result;
+    }
+
+    let way='right';
+    document.onkeydown=function (e) {
+        if(e.keyCode==37){
+            if(way=='right'){
+                return;
+            }
+            way='left';
+        }else if(e.keyCode==38){
+            if(way=='bottom'){
+                return;
+            }
+            way='top';
+        }else if(e.keyCode==39){
+            if(way=='left'){
+                return;
+            }
+            way='right';
+        }else if(e.keyCode==40){
+            if(way=='top'){
+                return;
+            }
+            way='bottom';
+        }
+    }
+
+    function move() {
+        let oldhead=she[she.length-1];
+        let newheadx,newheady;
+        switch (way){
+            case 'right':
+                newheadx=oldhead.x+1;
+                newheady=oldhead.y;
+                break;
+            case 'left':
+                newheadx=oldhead.x-1;
+                newheady=oldhead.y;
+                break;
+            case 'bottom':
+                newheadx=oldhead.x;
+                newheady=oldhead.y+1;
+                break;
+            case 'top':
+                newheadx=oldhead.x;
+                newheady=oldhead.y-1;
+                break;
+        }
+        if(newheadx<0||newheadx>19||newheady<0||newheady>19||check(newheadx,newheady)){
+            clearInterval(t);
+            $('.alert').style.display='block';
+            $('.box1').style.opacity=0.3;
+            box.style.opacity=0.3;
+            return;
+        }
+
+
+        let newheadobj=$('#r'+newheadx+'-'+newheady);
+        newheadobj.className='she';
+        she.push({x:newheadx,y:newheady});
+        var ctime=new Date();
+        var curtime=ctime.getTime();
+        var m= Math.floor((curtime-btime)/1000);
+        Time.innerHTML=m;
+        if(newheadx==food.x && newheady==food.y){
+            score++;
+            Score.innerHTML=score;
+            food=setFood();
+        }else{
+            let endobj=$('#r'+she[0].x+'-'+she[0].y);
+            endobj.classList.remove('she');
+            she.shift();
+        }
+    }
+
+    let t;
+    let n=0;
+    start.onclick=function () {
+        t=setInterval(move,200);
+        stop.onclick=function () {
+            n++;
+            if(n%2==1){
+                clearInterval(t);
+                stop.style.background='#C60A0A';
+            }else if(n%2==0){
+                t=setInterval(move,200);
+                stop.style.background='#CC5577';
+            }
+        }
+    };
+
+
+    $('.reload').onclick=function () {
+        history.go(0)
+    }
+
+</script>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js.js"></script>
+    <title>Title</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_xk7b0pg03choxbt9.css">
+</head>
+<style>
+    *{
+        padding:0;
+        margin: 0;
+        list-style: none;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        background: url("img/22.jpg")  no-repeat;
+        background-size: cover;
+    }
+    .box{
+        width:1000px;
+        height: 600px;
+        position: absolute;
+        left: 0;
+        right:0;
+        margin: auto;
+        top:20px;
+        border: 1px solid #1a1423;
+        box-shadow:0 2px 5px rgba(198,47,47,1);
+        background: rgba(255,255,255,0.6);
+    }
+    .rb_top{
+        width: 100%;
+        height:70px;
+        border-bottom: 1px solid #1a1423;
+        box-sizing: border-box;
+    }
+    .logo{
+        width: 250px;
+        height: 100%;
+        overflow: hidden;
+        float: left;
+        position: relative;
+    }
+    .logo>img{
+        position: absolute;
+        left: 30px;
+        top:5px;
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+    }
+    .search{
+        float: right;
+        width: 250px;
+        height: 100%;
+        margin-right: 30px;
+        position: relative;
+    }
+    .search>input{
+        width: 100%;
+        height: 40px;
+        margin-top: 15px;
+        box-sizing: border-box;
+        border: 1px solid rgba(0,0,0,0.4);
+        border-radius: 50px;
+        padding: 0 10px;
+    }
+    .search>div{
+        font-family: iconfont;
+        font-size: 18px;
+        position: absolute;
+        right: 15px;
+        top:26px;
+    }
+    .rb_left{
+        float: left;
+        width:250px;
+        height: 460px;
+        /*background: #F5F5F7;*/
+        border-right: 1px solid #E1E1E2;
+        box-sizing: border-box;
+
+    }
+    .rb_left>ul{
+        width: 100%;
+        height: auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+    .rb_left>ul>span{
+        width: 100%;
+        height:40px;
+        line-height: 35px;
+        text-align: left;
+        font-size: 28px;
+        font-family: 华文新魏;
+    }
+    .rb_left>ul>li{
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        height:35px;
+        font-size: 22px;
+        font-family: iconfont;
+        border-bottom: 1px dashed #5D636F;
+
+        line-height: 35px;
+    }
+    .rb_left>ul>li.active{
+        color: #C62F2F;
+        background: #E6E7EAx;
+    }
+    .rb_left>ul>li>span{
+        font-family: 华文新魏;
+    }
+    .rb_right{
+        width: 750px;
+        height: 460px;
+        float: left;
+        overflow: hidden;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .rb_word{
+        width: 65%;
+        height: 40px;
+        float: left;
+    }
+    .rb_word>tbody>tr{
+        width: 100%;
+        height: 40px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .rb_word>tbody>tr.active{
+        color: red;
+    }
+    .rb_word>tbody>tr>th,.rb_word>tbody>tr>td{
+        width:33.3%;
+        height: 100%;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+        font-family: 华文新魏;
+        border-bottom: 1px solid #404040;
+
+    }
+    .rb_word>tbody>tr>td>span{
+        font-family: iconfont;
+        font-size: 30px;
+    }
+    .rb_img{
+        width: 35%;
+        height: 100%;
+        float: left;
+    }
+    .imgbox{
+        width: 249px;
+        height:249px;
+        border-radius: 50%;
+        background: red;
+        overflow: hidden;
+    }
+    .imgbox>img{
+        width: 100%;
+        display: none;
+    }
+    .imgbox>img.active{
+        display: block;
+    }
+    .rb_bottom{
+        width: 100%;
+        height: 70px;
+        border-top:1px solid #E1E1E2;
+        box-sizing: border-box;
+        float: left;
+    }
+    .rb_play{
+        float: left;
+        width: 250px;
+        height: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .rb_play>div{
+        float: left;
+        font-family: iconfont;
+        width: 50px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 30px;
+        margin-left: 10px;
+    }
+    .rb_rate{
+        float: left;
+        width: 450px;
+        height: 100%;
+    }
+    .time1,.time2{
+        float: left;
+        width: 45px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 16px;
+    }
+    .rate{
+        float: left;
+        width: 320px;
+        height:4px;
+        background: #5D636F;
+        margin: 33px 10px;
+        position: relative;
+        border-radius:8px;
+    }
+    .currRate{
+        width: 0;
+        background: red;
+        height: 4px;
+        border-radius:8px;
+    }
+    .circle{
+        position: absolute;
+        left: -2px;
+        top:-2px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #000;
+    }
+    .rb_vol{
+        float: left;
+        width: 300px;
+        height: 100%;
+    }
+    .rb_vol>.play{
+        font-family: iconfont;
+        font-size: 20px;
+        float: left;
+        line-height: 70px;
+        margin-left: 20px;
+    }
+    .vol{
+        width: 140px;
+        height: 4px;
+        background: #E6E6E8;
+        float: left;
+        margin-left: 10px;
+        margin-top: 33px;
+        position: relative;
+    }
+    .currvol{
+        width: 0;
+        height: 4px;
+        background: red;
+        border-radius: 10px;
+    }
+    .circlevol{
+        position: absolute;
+        left: -2px;
+        top:-2px;
+        width: 8px;
+        height: 8px;
+        background: #000;
+        border-radius: 50%;
+
+    }
+    .menu{
+        height: 100%;
+        font-family: iconfont;
+        line-height: 70px;
+        text-align: center;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <audio src="audio/张碧晨,陈奕夫,傲日其愣%20-%20凉凉.mp3" controls></audio>
+    <div class="box">
+        <section class="rb_top">
+            <div class="logo">
+                <img src="img/05.png" alt="">
+            </div>
+            <div class="search">
+                <input type="text" placeholder="搜索音乐，歌手，歌词，用户">
+                <div class="icon-sousuo"></div>
+            </div>
+        </section>
+        <section class="rb_left">
+            <ul>
+                <span>推荐</span>
+                <li class="icon-yinle active"><span>发现音乐</span></li>
+                <li class="icon-fm"><span>私人FM</span></li>
+                <li class="icon-mv"><span>MV</span></li>
+                <li class="icon-pengyou"><span>朋友</span></li>
+            </ul>
+            <ul>
+                <span>我的音乐</span>
+                <li class="icon-ttpodicon"><span>本地音乐</span></li>
+                <li class="icon-xiazai"><span>下载管理</span></li>
+            </ul>
+            <ul>
+                <span>创建的歌单</span>
+                <li class="icon-xihuan"><span>我喜欢的音乐</span></li>
+            </ul>
+        </section>
+        <section class="rb_right">
+                <table class="rb_word">
+                    <tr>
+                        <th>歌曲名</th>
+                        <th>歌手</th>
+                        <th>播放状态</th>
+                    </tr>
+                </table>
+            <div class="rb_img">
+                <div class="imgbox">
+                    <img src="img/1.jpg" alt="" class="active">
+                    <img src="img/112.jpg" alt="">
+                    <img src="img/111.jpg" alt="">
+                    <img src="img/114.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="rb_bottom">
+            <div class="rb_play">
+                <div class="icon-shangyishou"></div>
+                <div class="icon-kaishi"></div>
+                <div class="icon-xiayishou"></div>
+            </div>
+            <div class="rb_rate">
+                <div class="time1">00:00</div>
+                <div class="rate">
+                    <div class="currRate"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="time2">00:00</div>
+
+            </div>
+            <div class="rb_vol">
+                <div class="icon-danquxunhuan play"></div>
+                <div class="icon-yinliang1 play"></div>
+                <div class="vol">
+                    <div class="currvol"></div>
+                    <div class="circlevol"></div>
+                </div>
+                <div class="menu icon-caidan"></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+<script>
+    //画歌曲列表
+    var database=[
+        {id:0,name:'凉凉',author:'张碧晨/杨宗纬',src:'audio/张碧晨,陈奕夫,傲日其愣 - 凉凉.mp3'},
+        {id:1,name:'父亲写的散文诗',author:'姚晨',src:'audio/姚晨 - 父亲写的散文诗.mp3'},
+        {id:2,name:'暧昧',author:'薛之谦',src:'audio/薛之谦 - 暧昧.mp3'},
+        {id:3,name:'清白之年',author:'王珞丹/朴树',src:'audio/王珞丹,朴树 - 清白之年.mp3'}
+    ];
+    var tab=$('table>tbody');
+    database.forEach(function (value) {
+        var tr=$('<tr>');
+        tr.className='rb';
+        tr.id=value.id;
+        tr.setAttribute('src',value.src);
+        tr.innerHTML=`
+        <td>${value.name}</td>
+        <td>${value.author}</td>
+        <td><span class="icon-yinliang2"></span></td>
+    `;
+        tab.appendChild(tr);
+    });
+
+
+    //歌曲的暂停与播放
+    var audio=$('audio');
+    var start=$('.rb_play>div:nth-child(2)');
+    var currRate=$('.currRate');
+    var circletime=$('.circle');
+
+    var currTime=Math.round(audio.currentTime);
+    var sumTime=Math.round(audio.duration);
+
+
+    audio.ontimeupdate=function () {
+        move();
+    }
+    //获取当前播放歌曲的时间
+    function move() {
+        //歌曲播放的时间进度
+        currTime=Math.round(audio.currentTime);
+        var m=Math.trunc(currTime/60)>=10?Math.trunc(currTime/60):'0'+Math.trunc(currTime/60);
+        var s=Math.trunc(currTime%60)>=10?Math.trunc(currTime%60):'0'+Math.trunc(currTime%60);
+        $('.time1').innerHTML=`${m}:${s}`;
+        //歌曲总的播放时间
+        sumTime=Math.round(audio.duration);
+        var sm=Math.trunc(sumTime/60)>=10?Math.trunc(sumTime/60):'0'+Math.trunc(sumTime/60);
+        var ss=Math.trunc(sumTime%60)>=10?Math.trunc(sumTime%60):'0'+Math.trunc(sumTime%60);
+        $('.time2').innerHTML=`${sm}:${ss}`;
+        //设置歌曲播放的进度条
+        currRate.style.width=currTime/sumTime*currRate.parentElement.offsetWidth+'px';
+        circletime.style.left=currTime/sumTime*currRate.parentElement.offsetWidth-2+'px';
+    }
+
+
+    var rblis=$('.rb',true);
+    var Id=[...tab.children].findIndex(function (value,index) {
+        return value.id==database[index].id;
+    });
+
+    rblis[0].classList.add('active');
+
+    var parrate=$('.rate');
+    parrate.onclick=function (e) {
+        let bb=e.target||e.srcElement;
+        if(bb.className=='circle'){
+            return;
+        }
+        let Width=e.offsetX;
+        currRate.style.width=Width+'px';
+        circletime.style.left=Width-2+'px';
+        currTime=Math.round(Width/currRate.parentElement.offsetWidth*audio.duration);
+        audio.currentTime=currTime;
+    }
+
+
+
+    //播放按钮的设置
+    start.onclick=function () {
+        if(audio.paused){
+            audio.play();
+            start.className='icon-zanting';
+            rblis[Id].style.color='red'
+        }else{
+            audio.pause();
+            start.className='icon-kaishi';
+            rblis[Id].style.color='#000'
+        }
+    }
+
+
+    //音量的操作
+    var volbtn=$('.rb_vol>div:nth-child(2)');
+    var currVol=$('.currvol');
+    var circlevol=$('.circlevol');
+    var parvol=$('.vol');
+    var currvol=1;
+    audio.volume=currvol;
+    currVol.style.width=currvol*currVol.parentElement.offsetWidth+'px';
+    circlevol.style.left=currvol*currVol.parentElement.offsetWidth-2+'px';
+
+    volbtn.onclick=function () {
+        if(volbtn.className=='icon-yinliang1 play'){
+            volbtn.className='icon-jingyin play';
+            currvol=audio.volume;
+            audio.volume=0;
+        }else{
+            audio.volume=currvol;
+            volbtn.className='icon-yinliang1 play';
+
+        }
+    }
+
+    audio.onvolumechange=function () {
+        format();
+    }
+    function format() {
+        currVol.style.width=audio.volume*currVol.parentElement.offsetWidth+'px';
+        circlevol.style.left=audio.volume*currVol.parentElement.offsetWidth-2+'px';
+    }
+
+    parvol.onclick=function (e) {
+        let aa=e.target||e.srcElement;
+        if(aa.className=='circlevol'){
+            return;
+        }
+        let Width=e.offsetX;
+        currVol.style.width=Width+'px';
+        circlevol.style.left=Width-2+'px';
+        audio.volume=Width/currVol.parentElement.offsetWidth;
+    }
+
+
+    //歌曲上一首
+    var imgli=$('.imgbox>img',true);
+    var before=$('.rb_play>div:nth-child(1)');
+    var next=$('.rb_play>div:nth-child(3)');
+    var currobj;
+    before.onclick=function () {
+        Id--;
+        if(Id<0){
+            Id=3;
+        }
+        currobj=rblis[Id];
+        audio.src=currobj.getAttribute('src');
+        audio.play();
+        start.className='icon-zanting';
+        rblis.forEach(function (value) {
+            value.style.color='#000';
+        });
+        currobj.style.color='red';
+        imgli.forEach(function (value) {
+            value.className='';
+        })
+        imgli[Id].className='active';
+    }
+
+
+    next.onclick=function () {
+       Id++;
+        if(Id>=4){
+            Id=0;
+        }
+        currobj=rblis[Id];
+        audio.src=currobj.getAttribute('src');
+        audio.play();
+        start.className='icon-zanting';
+        rblis.forEach(function (value) {
+            value.style.color='#000';
+        });
+        currobj.style.color='red';
+        imgli.forEach(function (value) {
+            value.className='';
+        })
+        imgli[Id].className='active';
+    }
+
+    //双击播放
+    rblis.forEach(function (value,index) {
+        value.ondblclick=function () {
+            audio.src=value.getAttribute('src');
+            audio.play();
+            start.className='icon-zanting';
+            rblis.forEach(function (value) {
+                value.style.color='#000';
+            });
+            value.style.color='red';
+            imgli.forEach(function (value) {
+                value.className='';
+            })
+            imgli[index].className='active';
+            Id=index;
+        }
+    })
+
+    audio.onended=function () {
+        Id++;
+        if(Id>=4){
+            Id=0;
+        }
+        currobj=rblis[Id];
+        audio.src=currobj.getAttribute('src');
+        audio.play();
+        start.className='icon-zanting';
+        rblis.forEach(function (value) {
+            value.style.color='#000';
+        });
+        currobj.style.color='red';
+        imgli.forEach(function (value) {
+            value.className='';
+        })
+        imgli[Id].className='active';
+    }
+</script>
