@@ -1,406 +1,750 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="src/jquery.js"></script>
-    <script src="src/bootstrap.min.js"></script>
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="src/bootstrap.min.css">
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_359602_fuip4lczt9ey7gb9.css">
-    <link rel="stylesheet" href="index.css">
-    <script src="animate.js"></script>
-    <title>个人站</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的网站</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/animte.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <script src="js/camera1.3.4.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
+    <link rel="stylesheet" id="camera-css"  href="css/camera.css" type="text/css" media="all">
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="css/css.scss">
+
 </head>
 <body>
-    <section class="banner">
-        <div class="MAX-banner">
-            <ul class="BN-img">
-                <li class="active"><img src="img/02.jpg" alt=""></li>
-                <li><img src="img/06.jpg" alt=""></li>
-                <li><img src="img/03.jpg" alt=""></li>
-            </ul>
-            <ul class="BN-circle">
-                <li class="icon-1 active"></li>
-                <li class="icon-1"></li>
-                <li class="icon-1"></li>
-            </ul>
-            <div class="nav">
-                <div class="nav-inner">
-                    <div class="logo">
-                        <img src="img/logo.png" alt="">
-                    </div>
-                    <div class="nav_elements">
-                        <ul>
-                            <li>
-                                <a>主页展示</a>
-                            </li>
-                            <li>
-                                <a>自我介绍</a>
-                            </li>
-                            <li>
-                                <a>技能展示</a>
-                            </li>
-                            <li>
-                                <a>项目介绍</a>
-                            </li>
-                            <li>
-                                <a>兴趣爱好</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <ul class="nav-hide">
-        <li><a href="">主页展示</a></li>
-        <li><a href="">自我介绍</a></li>
-        <li><a href="">技能展示</a></li>
-        <li><a href="">项目介绍</a></li>
-        <li><a href="">兴趣爱好</a></li>
-    </ul>
-    <div class="MIN-nav_elements">
-        <div class="nav_top">
-            <span class="icon-caidan"></span>
-            <div class="logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <span class="icon-sandian"></span>
-        </div>
-    </div>
-    <div class="navTop">
-        <div class="navTop_inner">
-            <div class="logoBox">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="wordBox">
-                <ul>
-                    <li>
-                        <a>主页展示</a>
-                    </li>
-                    <li>
-                        <a>自我介绍</span></a>
-                    </li>
-                    <li>
-                        <a>技能展示</a>
-                    </li>
-                    <li>
-                        <a>项目展示</a>
-                    </li>
-                    <li>
-                        <a>兴趣爱好</a>
-                    </li>
+      <header>
+           <div class="head">
+                <div class="logo"></div>
+                <ul class="left">
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#skill">技能</a></li>
+                    <li><a href="#hobby">爱好</a></li>
+                    <li><a href="#work">works</a></li>
+                    <li><a href="#display">作品展</a></li>
+                    <li><a href="#photo">个人相册</a></li>
+                    <li><a href="#link">友情链接</a></li>
                 </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container rb_section1">
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
-                <div class="hgroup">
-                    <h1 style="font-family: 华文新魏">欢迎进入我的主页</h1>
-                    <h3 style="font-family: 华文新魏">在时间的大钟上只有两个字，现在</h3>
+                <div class="right">
+                    <ul>
+                         <li class="iconfont"><a href="">&#xe78c;</a></li>
+                        <li class="iconfont"><a href="https://github.com/Nancy0123">&#xe683;</a></li>
+                        <li class="iconfont"><a href="">&#xeeb1;</a></li>
+                        <li class="iconfont"><a href="">&#xe631;</a></li>
+                         <li class="iconfont"><a href="">&#xe62c;</a></li>
+                        <li class="iconfont"><a href="">&#xe644;</a></li>
+                    </ul>
                 </div>
-                <p>Become a member of our church today!</p>
-                <a href="">Let`s Begin!</a>
-            </div>
-        </div>
-    </div>
-    <section class="rb_section2">
-        <div class="row">
-            <div class="col-md-6 col-md-push-6 col-sm-12">
-                <div class="at_inset">
-                    <div class="hgroup">
-                        <h2 style="font-family: 华文新魏">刘茹冰 <span style="font-size: 20px">前端工程师</span></h2>
-                        <h6 style="font-family: 华文新魏">一年半的前端工作经验，参与成熟事项，具有成熟作品</h6>
-                    </div>
-                    <p style="text-align: left;padding: 0 20px;font-family: 华文新魏;font-size: 20px">
-                        <span class="icon-dian" style="font-family: iconfont;font-size: 20px"></span>
-                        <span>熟练掌握前端开发技术</span><br>
-                        <span class="icon-dian" style="font-family: iconfont;font-size: 20px"></span>
-                        <span>有项目实践经验，了解WEB开发流程</span><br>
-                        <span class="icon-dian" style="font-family: iconfont;font-size: 20px"></span>
-                        <span>兴趣爱好广泛，能很快接受新鲜事物</span><br>
-                        <span class="icon-dian" style="font-family: iconfont;font-size: 20px"></span>
-                        <span>有良好的团队合作精神和高度的责任感</span><br>
-                    </p>
-                    <a>Read More</a>
-                </div>
-            </div>
-            <div class="rb_section2_blew col-md-6 col-md-pull-6 col-sm-12">
-                <div class="at_inset1">
-                    <div class="at_inset1_img">
-                        <img src="img/me.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="rb_section3">
-        <div class="row">
-            <div class="skill1 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-html"></span>
-                    </div>
-                    <p><a href="">HTML</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 86%"></span>
-                        <span class="icon-zuobiao" style="left: 80% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-css31"></span>
-                    </div>
-                    <p><a href="">CSS</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 96%"></span>
-                        <span class="icon-zuobiao" style="left: 90% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-socialjavascript"></span>
-                    </div>
-                    <p><a href="">JavaScript</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 96%"></span>
-                        <span class="icon-zuobiao" style="left: 90% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-jquery-copy"></span>
-                    </div>
-                    <p><a href="">jQuery</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 86%"></span>
-                        <span class="icon-zuobiao" style="left: 80% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 skill3 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-php"></span>
-                    </div>
-                    <p><a href="">PHP</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 56%"></span>
-                        <span class="icon-zuobiao" style="left: 50% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 skill3 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-nodejs1"></span>
-                    </div>
-                    <p><a href="">node.js</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 76%"></span>
-                        <span class="icon-zuobiao" style="left: 70% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 skill3 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-vuejs"></span>
-                    </div>
-                    <p><a href="">Vue.js</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 76%"></span>
-                        <span class="icon-zuobiao" style="left: 70% "></span>
-                    </p>
-                </div>
-            </div>
-            <div class="skill1 skill4 col-sm-3">
-                <div class="skill1_1">
-                    <div class="himg">
-                        <span class="icon-react"></span>
-                    </div>
-                    <p><a href="">React.js</a></p>
-                    <p style="font-family: 华文新魏;font-size: 20px;color: #000">掌握熟练度：</p>
-                    <p class="plan">
-                        <span style="width: 76%"></span>
-                        <span class="icon-zuobiao" style="left: 70% "></span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="rb_section4">
-        <div class="events">
-            <div class="events_1">
-                <h2 style="font-family: 华文新魏">项目展示</h2>
-            </div>
-            <div class="events_box">
-                <ul class="events_2_box">
-                    <div class="events_2">
-                        <a href="">
-                            <div class="events-page">
-                                <img src="img/xm1.jpg" alt="">
-                                <div class="events-inner">
-                                    <div class="events-inner-time">
-                                        <span>07</span>
-                                        <span>Sep</span>
-                                    </div>
-                                    <div class="events-inner-body">
-                                        <p>The Five Points of Gospel Truth</p>
-                                        <span>Local Church 233 Main St. New York, United States</span>
-                                        <span>Tuesday, 8:00 am, Wednesday, 5:00 pm</span>
-                                    </div>
-                                </div>
-                                <div class="events-page1">
-                                    <span class="icon-chakan" style="font-family: iconfont"></span>
-                                </div>
-                            </div>
+           </div>
+           <div class="min-head">
+               <div class="logo"></div>
+               <div class="right">
+                   <ul>
+                      <li class="iconfont"><a href="">&#xe78c;</a></li>
+                      <li class="iconfont"><a href="https://github.com/Nancy0123">&#xe683;</a></li>
+                      <li class="iconfont"><a href="">&#xeeb1;</a></li>
+                      <li class="iconfont"><a href="">&#xe631;</a></li>
+                      <li class="iconfont"><a href="">&#xe62c;</a></li>
+                      <li class="iconfont"><a href="">&#xe644;</a></li>
+                   </ul>
+               </div>
+           </div>
 
-                        </a>
-                    </div>
-                    <div class="events_2">
-                        <a href="">
-                            <div class="events-page">
-                                <img src="img/event-10-563x310.jpg" alt="">
-                                <div class="events-inner">
-                                    <div class="events-inner-time">
-                                        <span>07</span>
-                                        <span>Sep</span>
-                                    </div>
-                                    <div class="events-inner-body">
-                                        <p>The Five Points of Gospel Truth</p>
-                                        <span>Local Church 233 Main St. New York, United States</span>
-                                        <span>Tuesday, 8:00 am, Wednesday, 5:00 pm</span>
-                                    </div>
-                                </div>
-                                <div class="events-page1">
-                                    <span class="icon-chakan" style="font-family: iconfont"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+      </header>
+      <div class="float-head">
+          <div class="top-head">
+              <div class="logo"></div>
+              <ul class="left">
+                  <li><a href="#about"></a>关于我</li>
+                  <li><a href="#skill"></a>技能</li>
+                  <li><a href="#hobby"></a>爱好</li>
+                  <li><a href="#work"></a>works</li>
+                  <li><a href="#display"></a>作品展</li>
+                  <li><a href="#photo"></a>个人相册</li>
+                  <li><a href="#link"></a>友情链接</li>
+              </ul>
+              <div class="right">
+                  <ul>
+                      <li class="iconfont"><a href="">&#xe78c;</a></li>
+                      <li class="iconfont"><a href="https://github.com/Nancy0123">&#xe683;</a></li>
+                      <li class="iconfont"><a href="">&#xeeb1;</a></li>
+                      <li class="iconfont"><a href="">&#xe631;</a></li>
+                      <li class="iconfont"><a href="">&#xe62c;</a></li>
+                      <li class="iconfont"><a href="">&#xe644;</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
 
-                    <div class="events_2">
-                        <a href="">
-                            <div class="events-page">
-                                <img src="img/event-9-563x310.jpg" alt="">
-                                <div class="events-inner">
-                                    <div class="events-inner-time">
-                                        <span>07</span>
-                                        <span>Sep</span>
-                                    </div>
-                                    <div class="events-inner-body">
-                                        <p>The Five Points of Gospel Truth</p>
-                                        <span>Local Church 233 Main St. New York, United States</span>
-                                        <span>Tuesday, 8:00 am, Wednesday, 5:00 pm</span>
-                                    </div>
-                                </div>
-                                <div class="events-page1">
-                                    <span class="icon-chakan" style="font-family: iconfont"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="events_2">
-                        <a href="">
-                            <div class="events-page">
-                                <img src="img/event-9-563x310.jpg" alt="">
-                                <div class="events-inner">
-                                    <div class="events-inner-time">
-                                        <span>07</span>
-                                        <span>Sep</span>
-                                    </div>
-                                    <div class="events-inner-body">
-                                        <p>The Five Points of Gospel Truth</p>
-                                        <span>Local Church 233 Main St. New York, United States</span>
-                                        <span>Tuesday, 8:00 am, Wednesday, 5:00 pm</span>
-                                    </div>
-                                </div>
-                                <div class="events-page1">
-                                    <span class="icon-chakan" style="font-family: iconfont"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
 
-                </ul>
-                <ul class="events_circle">
-                    <li class="active"></li>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section class="rb_section5">
-        <div class="GitHub">
-            <h2 style="font-family: 华文新魏;font-size: 50px">兴趣爱好</h2>
-            <div class="GitHub_inner">
-                <div class="GI-1 col-sm-8  col-md-4">
-                    <articel class="post-boxed">
-                        <figure>
-                            <img src="img/snake.jpg" alt="">
-                        </figure>
-                        <div class="post-boxed__body">
-                            <p class="post-boxed__time">August 6, 2016</p>
-                            <p class="post-boxed__title">
-                                <a href="Snake/index.html">贪吃蛇小游戏</a>
-                            </p>
-                            <a href="Snake/index.html" class="link">Read more</a>
+      <div class="camera_wrap" id="camera_wrap_1">
+          <div data-src="img/06.jpg"></div>
+          <div data-src="img/02.jpg"></div>
+          <div data-src="img/aa_01.jpg"></div>
+      </div>
+      <div class="banner">
+          <div class="container">
+              <div class="row">
+                    <p class="text1">生活不简单，还有前端和代码</p>
+                    <p class="text2">有恒则断无不成之事</p>
+                    <h1>欢迎进入我的主页</h1>
+                     <p class="text3">can you hear me?</p>
+                     <p class="text4">let go to html</p>
+                     <div class="iconfont jiantou">&#xe600;</div>
+              </div>
+          </div>
+      </div>
+
+      <div class="floor">
+
+           <!--关于我-->
+           <section class="container about">
+                   <div class="row">
+                       <a name="about" id="about">
+                        <div class="title">
+                            <h2>About Me</h2>
+                            <div class="line"></div>
+                            <h6>关于我</h6>
                         </div>
-                    </articel>
-                </div>
-                <div class="GI-1 col-sm-8  col-md-4">
-                    <articel class="post-boxed">
-                        <figure>
-                            <img src="img/word.jpg" alt="">
-                        </figure>
-                        <div class="post-boxed__body">
-                            <p class="post-boxed__time">August 6, 2016</p>
-                            <p class="post-boxed__title">
-                                <a href="word/index.html">打字游戏</a>
-                            </p>
-                            <a href="word/index.html" class="link">Read more</a>
+                       </a>
+                   </div>
+
+                   <div class="row">
+                       <div class="col-lg-4 col-sm-4 col-xs-12 col-xm-6">
+                           <img class="lazy" alt="" data-original="img/me01.jpg">
+                       </div>
+                       <div class="col-lg-7 col-sm-7 col-xs-12 content">
+                            <h1>刘茹冰</h1>
+                            <h5>web前端程序员 &  后台开发工程师</h5>
+                            <!--<div class="button">-->
+                                <!--<div class="contact">Contact Me</div>-->
+                                <!--<div class="download">download</div>-->
+                            <!--</div>-->
+                            <ul class="nei offset-top-30">
+                                <li><div class="mytitle">age</div>
+                                     <div class="dis">23</div>
+                                 </li>
+                                <li>
+                                    <div class="mytitle">Address</div>
+                                    <div class="dis">山西太原</div>
+                                </li>
+                                <li>
+                                    <div class="mytitle">Email</div>
+                                    <div class="dis">18335192447@163.com</div>
+                                </li>
+                                <li>
+                                    <div class="mytitle">Tel</div>
+                                    <div class="dis">18335192447</div>
+                                </li>
+                                <li>
+                                    <div class="mytitle">school</div>
+                                    <div class="dis">山西财经大学</div>
+                                </li>
+                                <li>
+                                    <div class="mytitle">学历</div>
+                                    <div class="dis">本科</div>
+                                </li>
+                            </ul>
+                       </div>
+                   </div>
+             </section>
+          <!--项目链接-->
+          <section class="link-box">
+              <div class="link  container">
+                  <div class="row">
+                      <a name="link" id="link">
+                          <div class="title">
+                              <h2>Link</h2>
+                              <div class="line"></div>
+                              <h6>公司项目</h6>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="row">
+                          <div class="col-xs-12  col-sm-6 col-lg-3">
+                              <a href="http://Nancy.duapp.com/">
+                              <div class="about1">
+                                  <div class="imgbox">
+                                      <img src="img/danian.jpg" alt="">
+                                  </div>
+                              </div>
+                              </a>
+                          </div>
+                          <div class="col-xs-12   col-sm-6  col-lg-3">
+                              <a href="http://lrbktv.duapp.com/#/">
+                               <div class="about1">
+                                  <div class="imgbox">
+                                      <img src="img/ktv_01.png" alt="">
+                                  </div>
+                               </div>
+                              </a>
+                          </div>
+                          <div class="col-xs-12   col-sm-6  col-lg-3">
+                              <a href="http://rbsell.duapp.com/#/">
+                                  <div class="about1">
+                                      <div class="imgbox">
+                                          <img src="img/ktv_05.png" alt="">
+                                      </div>
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="col-xs-12   col-sm-6  col-lg-3">
+                              <a href="http://household.duapp.com/#/">
+                                  <div class="about1">
+                                      <div class="imgbox">
+                                          <img src="img/ktv_08.png" alt="">
+                                      </div>
+                                  </div>
+                              </a>
+                          </div>
+                  </div>
+              </div>
+          </section>
+           <!--myskill-->
+          <section class="box">
+              <section class="skillbg">
+              </section>
+              <div class="container skill">
+                  <div class="row">
+                      <a id="skill" name="skill">
+                          <div class="title">
+                              <h2>My Skill</h2>
+                              <div class="line"></div>
+                              <h6>技能</h6>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-6 col-xs-12">
+                          <div class="skill-contact">
+                               <div class="one">
+                                   <h2>前端开发
+                                       <div class="skill-percent">94%</div>
+                                   </h2>
+                                   <div class="percent">
+                                       <div class="percent0"></div>
+                                   </div>
+
+                               </div>
+                               <div class="one">
+                                  <h2>PS/UI
+                                      <div class="skill-percent">86%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+                               <div class="one">
+                                  <h2>js\jQuery\vue\react
+                                      <div class="skill-percent">94%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+                               <div class="one">
+                                  <h2>node.js/php
+                                      <div class="skill-percent">80%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="col-sm-6 col-xs-12">
+                          <div class="skill-contact">
+                              <div class="one">
+                                  <h2>社交
+                                      <div class="skill-percent">94%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+                              <div class="one">
+                                  <h2>沟通
+                                      <div class="skill-percent">86%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+                              <div class="one">
+                                  <h2>学习能力
+                                      <div class="skill-percent">94%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+                              <div class="one">
+                                  <h2>时间管理
+                                      <div class="skill-percent">80%</div>
+                                  </h2>
+                                  <div class="percent">
+                                      <div class="percent0"></div>
+                                  </div>
+
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+           <!--hobby-->
+           <section class="hobby container">
+               <div class="row">
+                   <a id="hobby" name="hobby">
+                       <div class="title">
+                           <h2>My Hobby</h2>
+                           <div class="line"></div>
+                           <h6>爱好</h6>
+                       </div>
+                   </a>
+               </div>
+               <a href="music/Music.html">
+                   <div class="col-sm-6 col-md-3 col-lg-3">
+                       <div class="box">
+                           <div class="imgbox">
+                               <img class="lazy" alt="" data-original="img/3.gif">
+                           </div>
+                           <div class="hobby-body">
+                               <h3>音乐播放器</h3>
+                               <p>一款简单的音乐播放器.</p>
+                           </div>
+                       </div>
+
+                   </div>
+               </a>
+               <a href="word/index.html">
+                   <div class="col-sm-6 col-md-3 col-lg-3">
+                       <div class="box">
+                           <div class="imgbox">
+                               <img class="lazy" alt="" data-original="img/2.jpg">
+                           </div>
+                           <div class="hobby-body">
+                               <h3>打字游戏</h3>
+                               <p>过级打游戏。</p>
+                           </div>
+                       </div>
+                   </div>
+               </a>
+               <a href="Snake/index.html">
+                   <div class="col-sm-6 col-md-3 col-lg-3">
+                       <div class="box">
+                           <div class="imgbox">
+                               <img class="lazy" alt="" data-original="img/post-3-370x278.jpg">
+                           </div>
+                           <div class="hobby-body">
+                               <h3>贪吃蛇游戏</h3>
+                               <p>一款好玩的贪吃蛇游戏</p>
+                           </div>
+                       </div>
+                   </div>
+               </a>
+               <a href="canvas/canvas.html">
+                   <div class="col-sm-6 col-md-3 col-lg-3">
+                       <div class="box">
+                           <div class="imgbox">
+                               <img class="lazy" alt="" data-original="img/1.jpg">
+                           </div>
+                           <div class="hobby-body">
+                               <h3>画布</h3>
+                               <p>自己的画布画自己的画</p>
+                           </div>
+                       </div>
+                   </div>
+               </a>
+
+           </section>
+           <!--works-->
+           <section class="work-box">
+                  <div class="works container">
+                      <div class="row">
+                          <a name="work" id="work">
+                          <div class="title">
+                              <h2>Work  experience</h2>
+                              <div class="line"></div>
+                              <h6>工作经历</h6>
+                          </div>
+                          </a>
+                      </div>
+                      <div class="big-work">
+                          <div class="row media">
+                              <div class="experience">
+                                  <div class="col-xs-12 col-sm-3 col-md-3">
+                                      <div class="ex-content">
+                                          <span class="time">>>>></span>
+                                          <br>2016年7月
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-9  col-md-9 ex-about1">
+                                      <div class="ex-about">
+                                          <h4>山西财经大学</h4>
+                                          <h5>金融工程专业</h5>
+                                          <p>毕业于山西财经大学,在校成绩优异,选修了一些前端课程,考取英语四级证书 </p>
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row media">
+                              <div class="experience">
+                                  <div class="col-xs-12 col-sm-3 col-md-3">
+                                      <div class="ex-content">
+                                          <span class="time">>>>></span>
+                                          <br> 2016年3月-2017年9月
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-9  col-md-9 ex-about1">
+                                      <div class="ex-about">
+                                          <h4>晋尧同创科技有限公司</h4>
+                                          <h5>前端开发工程师</h5>
+                                          <p>工作内容：</p>
+                                          <p>  1）进行PC端页面开发和移动端项目开发； </p>
+                                          <p>  2） 使用html5和css3进行pc端页面开发布局及结合百分比，rem，flex布局进行移动端布局； </p>
+
+                                          <p>  3）与UI设计师对接项目，保证产品最终效果的实现； </p>
+
+                                          <p>  4）利用vue,react,angular,等框架快速实现页面，并利用php和node.js搭建后台。 </p>
+
+                                          <p>  5）利用Jquery插件和bootstrap等框架进行页面制作和装饰，使用ajax技术进行前后台数据交换。</p>
+
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                          </div>
+
+                          </div>
+                      </div>
+                      <div class="small-work">
+                              <div class="experience">
+                                  <div class="col-xs-12">
+                                      <div class="ex-content">
+                                          <span class="time">>>>></span>
+                                          <br>2016年7月
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-9  col-md-9 ex-about1">
+                                      <div class="ex-about">
+                                          <h4>山西财经大学</h4>
+                                          <h5>金融工程</h5>
+                                          <p>毕业于山西财经大学,在校成绩优异,选修了一些前端课程,考取英语四级证书 </p>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div class="experience">
+                                  <div class="col-xs-12">
+                                      <div class="ex-content">
+                                          <span class="time">>>>></span>
+                                          <br> 2016年3月-2017年9月
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-9  col-md-9 ex-about1">
+                                      <div class="ex-about">
+                                          <h4>晋尧同创科技有限公司</h4>
+                                          <h5>前端开发工程师</h5>
+                                          <p>工作内容：</p>
+                                          <p>  1）进行PC端页面开发和移动端项目开发； </p>
+                                          <p>  2）. 使用html5和css3进行pc端页面开发布局及结合百分比，rem，flex布局进行移动端布局； </p>
+
+                                          <p>  3）与UI设计师对接项目，保证产品最终效果的实现； </p>
+
+                                          <p>  4）利用vue,react,angular,等框架快速实现页面，并利用php和node.js搭建后台。 </p>
+
+                                          <p>  5）. 利用Jquery插件和bootstrap等框架进行页面制作和装饰，使用ajax技术进行前后台数据交换。</p>
+
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                          </div>
+                  </section>
+           <!--作品展开始-->
+          <section class="product-box">
+              <div class="product container">
+                  <div class="row">
+                      <a name="product">
+                        <div class="title">
+                          <h2>Display</h2>
+                          <div class="line"></div>
+                          <h6>知识分享</h6>
+                      </div>
+                      </a>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12 col-md-4 left-content">
+                          <ul class="big">
+                              <li>
+                                  <div class="left-text">
+                                      <h3>页面展示</h3>
+                                      <p>从静态页面到H5的各页面展示</p>
+                                  </div>
+                                  <div class="left-log active">
+                                      <div class="iconfont">&#xe644;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>js开发</h3>
+                                      <p>实现一些小游戏</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe615;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>插件封装</h3>
+                                      <p>jQuery插件的封装</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe60e;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>Ajax运用</h3>
+                                      <p>数据交互</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe78c;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>php开发</h3>
+                                      <p>后台前台</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe683;</div>
+                                  </div>
+                              </li>
+
+                          </ul>
+                          <ul class="small">
+                              <li>
+                                  <div class="left-text">
+                                      <h3>页面展示</h3>
+                                      <p>从静态页面到H5的各页面展示</p>
+                                  </div>
+                                  <div class="left-log active">
+                                      <div class="iconfont">&#xe644;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>js开发</h3>
+                                      <p>实现一些小游戏</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe615;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>插件封装</h3>
+                                      <p>jQuery插件的封装</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe60e;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>Ajax运用</h3>
+                                      <p>数据交互</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe78c;</div>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="left-text">
+                                      <h3>php开发</h3>
+                                      <p>后台前台</p>
+                                  </div>
+                                  <div class="left-log">
+                                      <div class="iconfont">&#xe683;</div>
+                                  </div>
+                              </li>
+
+                          </ul>
+                      </div>
+                      <div class="sm-hidden col-md-8 right-img">
+                          <ul class="right">
+                              <li class="active">
+                                  <img src="img/viewport_1.jpg" alt="">
+                              </li>
+                              <li >
+                                  <img src="img/viewport_2.jpg" alt="">
+                              </li>
+                              <li >
+                                  <img src="img/viewport_4.jpg" alt="">
+                              </li>
+                              <li>
+                                  <img src="img/viewport_5.jpg" alt="">
+                              </li>
+                              <li >
+                                  <img src="img/viewport_6.jpg" alt="">
+                              </li>
+
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </section>
+           <!--个人相册-->
+           <section class="photo-box offset-top-70">
+               <div class="column">
+                   <ul>
+                       <li class="active">
+                       </li>
+                       <li >
+                       </li>
+                       <li >
+                       </li>
+
+                   </ul>
+               </div>
+               <div class="bg"></div>
+               <div class="container photo">
+                   <div class="row">
+                       <a name="photo" id="photo">
+                            <div class="title">
+                           <h2>Photo</h2>
+                           <div class="line"></div>
+                           <h6>个人相册</h6>
+                       </div>
+                       </a>
+                   </div>
+                   <div class="row">
+                        <div class=" col-xs-6 col-sm-3">
+                             <div class="img">
+                                 <i class="iconfont">&#xe64f;</i>
+                                 <h3>喜欢的照片</h3>
+                                 <p>有恒则断无不成之事</p>
+                             </div>
                         </div>
-                    </articel>
-                </div>
-                <div class="GI-1 col-sm-8  col-md-4">
-                    <articel class="post-boxed">
-                        <figure>
-                            <img src="img/music.jpg" alt="">
-                        </figure>
-                        <div class="post-boxed__body">
-                            <p class="post-boxed__time">August 6, 2016</p>
-                            <p class="post-boxed__title">
-                                <a href="music/Music.html">音乐播放器</a>
-                            </p>
-                            <a href="music/Music.html" class="link">Read more</a>
-                        </div>
-                    </articel>
+                       <div class="  col-xs-6  col-sm-3">
+                           <div class="img">
+                               <i class="iconfont">&#xe603;</i>
+                               <h3>向往的生活</h3>
+                               <p>有恒则断无不成之事</p>
+                           </div>
+                       </div>
+                       <div class=" col-xs-6 col-sm-3">
+                           <div class="img">
+                               <i class="iconfont">&#xe657;</i>
+                               <h3>我的日常</h3>
+                               <p>有恒则断无不成之事</p>
+                           </div>
+                       </div>
+                       <div class=" col-xs-6  col-sm-3">
+                           <div class="img">
+                               <i class="iconfont">&#xe60b;</i>
+                               <h3>旅游记事</h3>
+                               <p>有恒则断无不成之事</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           <!--&lt;!&ndash;友情链接&ndash;&gt;-->
+           <!--<section class="link-box">-->
+                <!--<div class="link  container">-->
+                    <!--<div class="row">-->
+                        <!--<a name="link" id="link">-->
+                            <!--<div class="title">-->
+                                <!--<h2>Link</h2>-->
+                                <!--<div class="line"></div>-->
+                                <!--<h6>更多作品</h6>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="row row1">-->
+                        <!--<div class="col-xs-10   col-sm-6 col-lg-3">-->
+                            <!--<div class="about1">-->
+                                <!--<div class="imgbox">-->
+                                    <!--<img src="img/20170707085723986.jpg" alt="">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-10   col-sm-6  col-lg-3">-->
+                            <!--<div class="imgbox">-->
+                                <!--<img src="img/chengguan.jpg" alt="">-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-10   col-sm-6  col-lg-3">-->
+                            <!--<div class="imgbox">-->
+                                <!--<img src="img/danian.jpg" alt="">-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-10   col-sm-6  col-lg-3">-->
+                            <!--<div class="imgbox">-->
+                                <!--<img src="img/muke.jpg" alt="">-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+           <!--</section>-->
+
+      </div>
+       <!--footer-->
+       <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>生命不息，奋斗不止！
+                            <br>
+                            努力不一定有好的结果，不努力肯定没有结果，年轻就是奋斗的资本，别让以后的自己后悔。
+                        </p>
+                        <h5>Copyright © TOdo All Rights Reserved.
+                            <a href="">京ICP备15011150号-2</a>
+                        </h5>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="foot">
-            <p>联系我：18335192447@163.com</p>
-        </div>
-    </footer>
+       </footer>
 
-    <div class="return"><span class="icon-top"></span></div>
+      <!--楼层跳转-->
+       <ul class="nav">
+           <li>关于我</li>
+           <li>技能展示</li>
+           <li>爱好</li>
+           <li>工作经历</li>
+           <li>作品展</li>
+           <li>个人相册</li>
+           <li>友情链接</li>
+       </ul>
+       <!--回到顶部开始-->
+      <i class="iconfont aside">&#xe601;</i>
+
 </body>
 </html>
